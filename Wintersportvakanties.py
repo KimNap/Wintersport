@@ -15,7 +15,7 @@ import pandas as pd
 
 
 # In[2]:
-
+import streamlit as st
 
 # Assign URL to variable: url
 url = 'https://opendata.cbs.nl/ODataApi/odata/37282/TypedDataSet'
@@ -41,7 +41,7 @@ df = pd.DataFrame.from_dict(json_data['value'], orient='columns', dtype=None, co
 
 # Laat alle kolommen zien
 pd.set_option("display.max_columns", None)
-print(df.head())
+df.head()
 
 
 # In[4]:
@@ -84,7 +84,8 @@ import plotly.graph_objects as go
 
 fig = px.line(df, x="Perioden", y="TotaalLangeWintersportvakanties_1", title='')
 fig.update_xaxes(rangeslider_visible=True)
-st.show(fig)
+fig.show()
+st.write(fig)
 
 
 # In[10]:
@@ -121,8 +122,8 @@ sliders = [
 fig.update_layout({'sliders': sliders})
 
 # Show the plot
-st.show(fig)
-
+fig.show()
+st.write(fig)
 
 # In[12]:
 
@@ -177,7 +178,7 @@ fig.update_layout({'updatemenus':[{'type': "dropdown",
 fig.update_yaxes(title_text='Aantal')
 fig.update_layout(barmode='group')
 st.show(fig)
-
+st.write(fig)
 
 # In[14]:
 
@@ -230,7 +231,7 @@ fig.update_layout({'updatemenus':[{'type': "dropdown",
 fig.update_yaxes(title_text='Aantal')
 fig.update_layout(barmode='stack')
 st.show(fig)
-
+st.write(fig)
 
 # In[15]:
 
@@ -276,7 +277,7 @@ fig.update_layout({'updatemenus':[{'type': "buttons",
 fig.update_xaxes(rangeslider_visible=True)
 fig.update_xaxes(tickangle=40)
 st.show(fig)
-
+st.write(fig)
 
 # In[20]:
 
